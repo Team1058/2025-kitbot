@@ -35,6 +35,7 @@ public class RobotContainer {
   Drivetrain drivetrain;
   Vision vision;
 
+  Shooter shooter;
   CommandXboxController operatorController;
   CommandXboxController driveController;
 
@@ -52,6 +53,7 @@ public class RobotContainer {
     RoboRio roboRio = RoboRio.lookupBySerialNumber(System.getenv("serialnum"));
     robotConfig = RobotConfig.lookupConfig(roboRio);
     controllers = new Controllers(robotConfig.driverControllerPort, robotConfig.operatorControllerPort);
+    shooter = new Shooter(robotConfig.shooterConfig);
     driveController = controllers.driverController;
     operatorController = controllers.operatorController;
 
@@ -88,6 +90,7 @@ public class RobotContainer {
                         * 0.125)) // Drive counterclockwise with negative X (left)
             ));
 
+            operatorController.x().whileTrue(shooter.shootingCommand());
   }
 
   

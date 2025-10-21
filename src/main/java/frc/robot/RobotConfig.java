@@ -8,7 +8,7 @@ import edu.wpi.first.math.geometry.Transform3d;
 import edu.wpi.first.math.geometry.Translation3d;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Vision;
-
+import frc.robot.subsystems.Shooter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,6 +18,7 @@ public class RobotConfig {
   int operatorControllerPort;
   Drivetrain.Config drivetrainConfig;
   Vision.Config visionConfig;
+Shooter.Config shooterConfig;
 
   static Map<RoboRio, RobotConfig> knownConfigs;
 
@@ -57,6 +58,8 @@ public class RobotConfig {
     kitbot.drivetrainConfig.sidelength = Inches.of(26);
     kitbot.drivetrainConfig.shouldUsePIDForAlignment = false;
     kitbot.visionConfig = new Vision.Config();
+    kitbot.shooterConfig = new Shooter.Config();
+    kitbot.shooterConfig.shooterMotorId = 7;
 
     // kitbot.visionConfig.frontCameraToRobot = new Transform3d(
     //     new Translation3d(Inches.of(6.996), Inches.of(7.250), Inches.of(38.075)),
