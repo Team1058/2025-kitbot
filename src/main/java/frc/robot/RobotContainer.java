@@ -49,12 +49,12 @@ public class RobotContainer {
 
 
   public RobotContainer() {
-
-    String serialNumber = System.getenv("serialnum");
-    RoboRio roboRio = RoboRio.lookupBySerialNumber(serialNumber);
+    RoboRio roboRio = RoboRio.lookupBySerialNumber(System.getenv("serialnum"));
     robotConfig = RobotConfig.lookupConfig(roboRio);
-    driveController = new CommandXboxController(robotConfig.driverControllerPort);
-    controllers = new Controllers(driveController, operatorController);
+    controllers = new Controllers(robotConfig.driverControllerPort, robotConfig.operatorControllerPort);
+    driveController = controllers.driverController;
+    operatorController = controllers.operatorController;
+
     fieldMap = new FieldMap(Alliance.Red);
     initDrivetrain(robotConfig.drivetrainConfig);
     initVision(robotConfig.visionConfig);

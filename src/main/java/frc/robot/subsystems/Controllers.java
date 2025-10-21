@@ -7,13 +7,17 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 
 public class Controllers extends SubsystemBase {
-  private CommandXboxController driverController;
-  private CommandXboxController operaterController;
+  public CommandXboxController driverController;
+  public CommandXboxController operatorController;
+
+  public Controllers(int driverPort, int operatorPort) {
+    this(new CommandXboxController(driverPort), new CommandXboxController(operatorPort));
+  }
 
   public Controllers(
-      CommandXboxController driverController, CommandXboxController operaterController) {
+      CommandXboxController driverController, CommandXboxController operatorController) {
     this.driverController = driverController;
-    this.operaterController = operaterController;
+    this.operatorController = operatorController;
     setDefaultCommand(runOnce(() -> this.driverController.setRumble(RumbleType.kBothRumble, 0)));
   }
 
@@ -24,12 +28,12 @@ public class Controllers extends SubsystemBase {
                 driverController.setRumble(RumbleType.kBothRumble, 1);
               }
               if (rumbleOperator) {
-                operaterController.setRumble(RumbleType.kBothRumble, 1);
+                operatorController.setRumble(RumbleType.kBothRumble, 1);
               }
             },
             () -> {
               driverController.setRumble(RumbleType.kBothRumble, 0);
-              operaterController.setRumble(RumbleType.kBothRumble, 0);
+              operatorController.setRumble(RumbleType.kBothRumble, 0);
             })
         .withName("Controllers Rumble Command");
   }
@@ -71,16 +75,16 @@ public class Controllers extends SubsystemBase {
   }
 
   public double getOperatorLeftY() {
-    if (isOutsideDeadband(operaterController.getLeftY())) {
-      return operaterController.getLeftY();
+    if (isOutsideDeadband(operatorController.getLeftY())) {
+      return operatorController.getLeftY();
     }
 
     return 0;
   }
 
   public double getOperatorRightY() {
-    if (isOutsideDeadband(operaterController.getRightY())) {
-      return operaterController.getRightY();
+    if (isOutsideDeadband(operatorController.getRightY())) {
+      return operatorController.getRightY();
     }
 
     return 0;

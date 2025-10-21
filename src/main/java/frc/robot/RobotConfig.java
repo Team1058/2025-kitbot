@@ -13,6 +13,7 @@ import java.util.Map;
 public class RobotConfig {
   String name;
   int driverControllerPort;
+  int operatorControllerPort;
   Drivetrain.Config drivetrainConfig;
   Vision.Config visionConfig;
 
@@ -35,6 +36,7 @@ public class RobotConfig {
   static RobotConfig getCommonConfig() {
     var common = new RobotConfig();
     common.driverControllerPort = 0;
+    common.operatorControllerPort = 1;
 
     return common;
   }
