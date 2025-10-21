@@ -6,7 +6,9 @@ import static edu.wpi.first.units.Units.Inches;
 import edu.wpi.first.math.geometry.Rotation3d;
 import edu.wpi.first.math.geometry.Transform3d;
 import edu.wpi.first.math.geometry.Translation3d;
-import frc.robot.*;
+import frc.robot.subsystems.Drivetrain;
+import frc.robot.subsystems.Vision;
+
 import java.util.HashMap;
 import java.util.Map;
 
