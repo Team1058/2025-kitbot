@@ -34,6 +34,7 @@ public class RobotContainer {
   Controllers controllers;
   Drivetrain drivetrain;
   Vision vision;
+  Leds leds;
 
   Shooter shooter;
   CommandXboxController operatorController;
@@ -54,6 +55,7 @@ public class RobotContainer {
     robotConfig = RobotConfig.lookupConfig(roboRio);
     controllers = new Controllers(robotConfig.driverControllerPort, robotConfig.operatorControllerPort);
     shooter = new Shooter(robotConfig.shooterConfig);
+    leds = new Leds();
     driveController = controllers.driverController;
     operatorController = controllers.operatorController;
 
