@@ -15,7 +15,7 @@ import frc.robot.subsystems.*;
 
 public class Leds extends SubsystemBase{
     private static final int kPort = 0;
-    private static final int kLength = 39;
+    private static final int kLength = 64;
     private final AddressableLED ledStrip;
     private final AddressableLEDBuffer ledBuffer;
 
@@ -46,3 +46,11 @@ public class Leds extends SubsystemBase{
     }
 
 }
+/*
+LED plan:   individual strip length: 32 / 19 inches
+            4 strips, 2 each side
+            on the outside of wood part of intake
+            mirrored LEDs
+            top LED: is moving? status
+            bottom LED: is intaking? status
+*/
