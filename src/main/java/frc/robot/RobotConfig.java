@@ -18,7 +18,7 @@ public class RobotConfig {
   int operatorControllerPort;
   Drivetrain.Config drivetrainConfig;
   Vision.Config visionConfig;
-Shooter.Config shooterConfig;
+  Shooter.Config shooterConfig;
 
   static Map<RoboRio, RobotConfig> knownConfigs;
 

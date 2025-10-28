@@ -92,7 +92,13 @@ public class RobotContainer {
                         * 0.125)) // Drive counterclockwise with negative X (left)
             ));
 
+            driveController.x().whileTrue(shooter.shootingCommand());
+
+            driveController.a().whileTrue(shooter.spitBackCommand());
+
             operatorController.x().whileTrue(shooter.shootingCommand());
+
+            operatorController.a().whileTrue(shooter.spitBackCommand());
   }
 
   
@@ -155,8 +161,17 @@ public class RobotContainer {
   public Command getAutonomousCommand() {
     return autoChooser.getSelected();
   }
+  public void ledSetPatternsLogic(){
 
-      
-    
-    } 
+    if (leds != null) {
+      if(drivetrain.getIsDrivetrainMoving()){
+        leds.ledStripPattern = leds.rainbowBarf;
+      }
+      else{
+        leds.ledStripPattern = leds.redBreathe;
+      }
+    }
+  }
+
+} 
 
