@@ -45,7 +45,7 @@ public class RobotContainer {
   SwerveRequest.FieldCentricFacingAngle reefLock;
   SwerveRequest.SwerveDriveBrake brake;
 
-
+  Pneumatics pneumatics;
   SendableChooser<Command> autoChooser;
   private ShuffleboardTab autosTab;
 
@@ -56,6 +56,7 @@ public class RobotContainer {
     controllers = new Controllers(robotConfig.driverControllerPort, robotConfig.operatorControllerPort);
     shooter = new Shooter(robotConfig.shooterConfig);
     leds = new Leds();
+    pneumatics = new Pneumatics(null);
     driveController = controllers.driverController;
     operatorController = controllers.operatorController;
 
@@ -96,9 +97,17 @@ public class RobotContainer {
 
             driveController.a().whileTrue(shooter.spitBackCommand());
 
+            driveController.y().onTrue(pneumatics.setSolenoidCommand(true));
+
+            driveController.b().onTrue(pneumatics.setSolenoidCommand(false));
+
             operatorController.x().whileTrue(shooter.shootingCommand());
 
             operatorController.a().whileTrue(shooter.spitBackCommand());
+
+            operatorController.y().onTrue(pneumatics.setSolenoidCommand(true));
+
+            operatorController.b().onTrue(pneumatics.setSolenoidCommand(false));
   }
 
   
