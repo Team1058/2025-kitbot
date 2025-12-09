@@ -492,7 +492,7 @@ public class Drivetrain extends SwerveDrivetrain<TalonFX, TalonFX, CANcoder> imp
         || (Math.abs(getRotation3d().getMeasureY().baseUnitMagnitude()) > 0.15)));
   }
   public boolean getIsDrivetrainMoving(){
-    return (Math.abs(this.getCurrentSpeeds().vxMetersPerSecond) + Math.abs(this.getCurrentSpeeds().vyMetersPerSecond)> 0.1);
+    return (Math.abs(this.getCurrentSpeeds().vxMetersPerSecond) + Math.abs(this.getCurrentSpeeds().vyMetersPerSecond)) > 0.1;
   }
 
   public Trigger getAlignedTrigger(
