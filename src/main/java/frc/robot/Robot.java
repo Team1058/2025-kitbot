@@ -8,6 +8,8 @@ import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.subsystems.Pneumatics;
+
 import java.util.Optional;
 import org.littletonrobotics.junction.LoggedRobot;
 import org.littletonrobotics.junction.Logger;
@@ -67,6 +69,7 @@ public class Robot extends LoggedRobot {
       robotContainer.updateAlliance(newAlliance.get());
       alliance = newAlliance;
     }
+    robotContainer.pneumatics.getPressure();
   }
 
   /** This autonomous runs the autonomous command selected by your {@link RobotContainer} class. */
@@ -99,6 +102,7 @@ public class Robot extends LoggedRobot {
   @Override
   public void teleopPeriodic() {
     robotContainer.ledSetPatternsLogic();
+    robotContainer.pneumatics.getPressure();
   }
 
   @Override

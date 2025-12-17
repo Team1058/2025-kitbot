@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
+import edu.wpi.first.wpilibj2.command.PrintCommand;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
@@ -30,7 +31,7 @@ public class Pneumatics extends SubsystemBase {
 
 public Pneumatics (Config config) {
     m_compressor = new Compressor(PneumaticsModuleType.REVPH);
-    m_compressor.enableAnalog(70, 120);   
+    m_compressor.enableAnalog(70, 100);   
     m_solenoid = new Solenoid(PneumaticsModuleType.REVPH, 0);
 } 
 
@@ -43,7 +44,8 @@ public boolean getPressureSwitchValue(){
 }
 
 public double getPressure(){
-    return m_compressor.getPressure();   
+    System.out.println( m_compressor.getPressure());
+    return m_compressor.getPressure();
 }
 
 public Command setSolenoidCommand(boolean open) {
@@ -53,7 +55,5 @@ public Command setSolenoidCommand(boolean open) {
 public void toggleSolenoid() {
     m_solenoid.toggle();
 }
-
-
 
 }

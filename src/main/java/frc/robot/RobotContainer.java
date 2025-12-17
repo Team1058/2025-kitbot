@@ -45,7 +45,7 @@ public class RobotContainer {
   SwerveRequest.FieldCentricFacingAngle reefLock;
   SwerveRequest.SwerveDriveBrake brake;
 
-  Pneumatics pneumatics;
+  public Pneumatics pneumatics;
   SendableChooser<Command> autoChooser;
   private ShuffleboardTab autosTab;
 
