@@ -65,6 +65,7 @@ public class RobotContainer {
     initVision(robotConfig.visionConfig);
     configureDriverBindings(robotConfig.drivetrainConfig);
     initAuto();
+    registerNamedCommands();
   }
 
   private void configureDriverBindings(Drivetrain.Config config) {
@@ -180,6 +181,13 @@ public class RobotContainer {
         leds.ledStripPattern = leds.redBreathe;
       }
     }
+  }
+
+  public void registerNamedCommands() {
+    NamedCommands.registerCommand("knock_algae", pneumatics.setSolenoidCommand(true));
+    NamedCommands.registerCommand("retract_algae", pneumatics.setSolenoidCommand(false));
+    NamedCommands.registerCommand("shoot_coral", shooter.shootingCommand());
+    NamedCommands.registerCommand("2_sec_spit", shooter.timedShootingCommand(2));
   }
 
 } 
