@@ -164,11 +164,25 @@ public class RobotContainer {
   public void ledSetPatternsLogic(){
 
     if (leds != null) {
-      if(drivetrain.getIsDrivetrainMoving()){
-        leds.ledStripPattern = leds.rainbowBarf;
+      if(shooter.getCurrentCommand() != null && shooter.getCurrentCommand().getName().equals("shooting command")){
+        leds.topStripPattern = leds.blueBase;
+      }
+      else if(drivetrain.getIsDrivetrainMoving()){
+        leds.topStripPattern = leds.rainbowBarf;
       }
       else{
-        leds.ledStripPattern = leds.redBreathe;
+        leds.topStripPattern = leds.redBlinkWithRsl;
+      }
+    }
+    if (leds != null) {
+      if (RobotController.getBrownoutVoltage() >= RobotController.getBatteryVoltage()){
+        leds.bottomStripPattern = leds.brownBase;
+      }
+      else if (RobotController.getBatteryVoltage() <= 11.8){
+        leds.bottomStripPattern = leds.orangeBase;
+      }
+      else {
+        leds.bottomStripPattern = leds.redBlinkWithRsl;
       }
     }
   }

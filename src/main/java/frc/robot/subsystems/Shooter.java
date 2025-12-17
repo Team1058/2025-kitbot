@@ -26,7 +26,7 @@ public class Shooter extends SubsystemBase {
     
 
    public Command shootingCommand(){
-return new StartEndCommand(()-> shooterMotor.set(.3), ()->shooterMotor.set(0));
+return new StartEndCommand(()-> shooterMotor.set(.3), ()->shooterMotor.set(0)).withName("shooting command");
     }
 
     public Command spitBackCommand(){
