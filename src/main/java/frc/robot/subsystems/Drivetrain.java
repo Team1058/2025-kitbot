@@ -66,6 +66,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.function.DoubleSupplier;
 import java.util.function.Supplier;
+
+import org.littletonrobotics.junction.AutoLogOutput;
 import org.littletonrobotics.junction.Logger;
 
 /**
@@ -128,6 +130,8 @@ public class Drivetrain extends SwerveDrivetrain<TalonFX, TalonFX, CANcoder> imp
   private Notifier simNotifier = null;
   private double lastSimTime;
 
+  @AutoLogOutput(key = "Drivetrain/Pose2d")
+  public Pose2d dtPose;
   SendableChooser<SysIdRoutine> routineChooser;
   SendableChooser<Test> testChooser;
 
@@ -940,13 +944,15 @@ public class Drivetrain extends SwerveDrivetrain<TalonFX, TalonFX, CANcoder> imp
     field2D.setRobotPose(getPose());
 
     var state = getState();
-
-    Logger.recordOutput("Drivetrain/Pose", getPose());
+    
+    this.dtPose = getPose();
+    // Logger.recordOutput("Drivetrain/Pose", getPose());
     Logger.recordOutput("Drivetrain/ChassisSpeeds", getCurrentSpeeds());
     Logger.recordOutput("Drivetrain/ModuleStates", state.ModuleStates);
     Logger.recordOutput("Drivetrain/ModuleTargets", state.ModuleTargets);
     Logger.recordOutput("Drivetrain/Pitch", getRotation3d().getY());
     Logger.recordOutput("Drivetrain/Roll", getRotation3d().getX());
+
   }
 
   /* Swerve requests to apply during SysId characterization */

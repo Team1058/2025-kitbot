@@ -59,7 +59,7 @@ public class RobotConfig {
     kitbot.drivetrainConfig.shouldUsePIDForAlignment = false;
     kitbot.visionConfig = new Vision.Config();
     kitbot.shooterConfig = new Shooter.Config();
-    kitbot.shooterConfig.shooterMotorId = 7;
+    kitbot.shooterConfig.shooterMotorId = 25;
 
     // kitbot.visionConfig.frontCameraToRobot = new Transform3d(
     //     new Translation3d(Inches.of(6.996), Inches.of(7.250), Inches.of(38.075)),
