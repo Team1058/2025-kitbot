@@ -56,6 +56,6 @@ public abstract class PVCSparkSystemBase extends SubsystemBase {
   @Override
   public void periodic() {
     updateInputs();
-    Logger.processInputs(getName(), (SubsystemInputsAutoLogged) subsystemInputs);
+    Logger.processInputs("Subsystems/"+getName(), subsystemInputs);
   }
 }
