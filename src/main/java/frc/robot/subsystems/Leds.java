@@ -76,27 +76,4 @@ public class Leds extends SubsystemBase{
 LED plan:   individual strip length: 32 / 19 inches
             4 strips, 2 each side
             on the outside of wood part of intake
-W = White
-R = Red
-G = Green
-Bl = Blue
-Br = Brown
-P = Purple
-
-F: W W
-E: W R
-D: W G
-C: W Bl
-B: W Br
-A: W P
-9: R R
-8: R G
-7: R Bl
-6: R Br
-5: R P
-4: G G
-3: G Bl
-2: G Br
-1: G P
-0: Bl Bl
 */

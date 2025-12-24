@@ -12,17 +12,17 @@ public class GitColor {
     
     static {colorsChart = new HashMap<Character, Color[]>();
         colorsChart.put('0', new Color[]{Color.kBlue, Color.kBlue});
-        colorsChart.put('1', new Color[]{Color.kGreen, Color.kPurple});
-        colorsChart.put('2', new Color[]{Color.kGreen, Color.kBrown});
-        colorsChart.put('3', new Color[]{Color.kGreen, Color.kBlue});
-        colorsChart.put('4', new Color[]{Color.kGreen, Color.kGreen});
-        colorsChart.put('5', new Color[]{Color.kRed, Color.kPurple});
-        colorsChart.put('6', new Color[]{Color.kRed, Color.kBrown});
-        colorsChart.put('7', new Color[]{Color.kRed, Color.kBlue});
-        colorsChart.put('8', new Color[]{Color.kRed, Color.kGreen});
-        colorsChart.put('9', new Color[]{Color.kRed, Color.kRed});
-        colorsChart.put('A', new Color[]{Color.kWhite, Color.kPurple});
-        colorsChart.put('B', new Color[]{Color.kWhite, Color.kBrown});
+        colorsChart.put('1', new Color[]{Color.kBlue, Color.kGreen});
+        colorsChart.put('2', new Color[]{Color.kBlue, Color.kRed});
+        colorsChart.put('3', new Color[]{Color.kBlue, Color.kWhite});
+        colorsChart.put('4', new Color[]{Color.kGreen, Color.kBlue});
+        colorsChart.put('5', new Color[]{Color.kGreen, Color.kGreen});
+        colorsChart.put('6', new Color[]{Color.kGreen, Color.kRed});
+        colorsChart.put('7', new Color[]{Color.kGreen, Color.kWhite});
+        colorsChart.put('8', new Color[]{Color.kRed, Color.kBlue});
+        colorsChart.put('9', new Color[]{Color.kRed, Color.kGreen});
+        colorsChart.put('A', new Color[]{Color.kRed, Color.kRed});
+        colorsChart.put('B', new Color[]{Color.kRed, Color.kWhite});
         colorsChart.put('C', new Color[]{Color.kWhite, Color.kBlue});
         colorsChart.put('D', new Color[]{Color.kWhite, Color.kGreen});
         colorsChart.put('E', new Color[]{Color.kWhite, Color.kRed});
