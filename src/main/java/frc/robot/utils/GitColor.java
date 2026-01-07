@@ -29,10 +29,10 @@ public class GitColor {
         colorsChart.put('F', new Color[]{Color.kWhite, Color.kWhite});
     }
        public static LEDPattern colorSegmentFromCharacter(){
-        Color[] char1Colors = colorsChart.get(Character.toUpperCase(BuildConstants.GIT_SHA.charAt(36)));
-        Color[] char2Colors = colorsChart.get(Character.toUpperCase(BuildConstants.GIT_SHA.charAt(37)));
-        Color[] char3Colors = colorsChart.get(Character.toUpperCase(BuildConstants.GIT_SHA.charAt(38)));
-        Color[] char4Colors = colorsChart.get(Character.toUpperCase(BuildConstants.GIT_SHA.charAt(39)));
+        Color[] char1Colors = colorsChart.get(Character.toUpperCase(BuildConstants.GIT_SHA.charAt(0)));
+        Color[] char2Colors = colorsChart.get(Character.toUpperCase(BuildConstants.GIT_SHA.charAt(1)));
+        Color[] char3Colors = colorsChart.get(Character.toUpperCase(BuildConstants.GIT_SHA.charAt(2)));
+        Color[] char4Colors = colorsChart.get(Character.toUpperCase(BuildConstants.GIT_SHA.charAt(3)));
         Map<Double, Color> colorsMap = new HashMap<Double, Color>();
         colorsMap.put(0.0, Color.kBlack);
         colorsMap.put(1/11.0, char1Colors[0]);
